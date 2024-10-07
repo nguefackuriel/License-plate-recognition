@@ -25,8 +25,11 @@ header = st.container()
 body = st.container()
 
 @st.cache
-coco_model = YOLO(COCO_MODEL_DIR)
-license_plate_detector = YOLO(LICENSE_MODEL_DETECTION_DIR)
+def load_coco(model):
+    return YOLO(model)
+
+coco_model = load_coco(COCO_MODEL_DIR)
+license_plate_detector = load_coco(LICENSE_MODEL_DETECTION_DIR)
 
 threshold = 0.15
 
